@@ -1,26 +1,36 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  console.log(user);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
 
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else setTheme("light");
 
-    useEffect(()=>{
-        localStorage.setItem('theme', theme)
-        const localTheme = localStorage.getItem('theme')
-        document.querySelector('html').setAttribute('data-theme',localTheme)
-    },[theme])
+    console.log(e.target.checked);
+  };
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Loged out Successful!");
+      })
+      .catch(() => {
+        toast.success("Logout failed");
+      });
+  };
 
-    const handleToggle = (e) =>{
-        if(e.target.checked){
-            setTheme('dark')
-        }
-        else setTheme('light')
-
-        console.log(e.target.checked);
-    }
-    
   const links = (
     <>
       <li className="hover:text-[#973E12]">
@@ -105,25 +115,47 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end font-lato">
-        <Link
-          to="/login"
-          className="btn bg-[#973E12]  text-white font-poppins rounded-3xl min-h-0 h-10 md:min-h-[3rem] md:h-[3rem]"
-        >
-          Login
-        </Link>
-        <Link
-          to="/register"
-          className=" hidden md:flex ml-2 btn bg-[#973E12] text-white font-poppins rounded-3xl min-h-0 h-10 md:min-h-[3rem] md:h-[3rem]"
-        >
-          Register
-        </Link>
+        {user ? (
+          <>
+            <div
+              className="avatar hover:tooltip hover:tooltip-open hover:tooltip-bottom"
+              data-tip={user.displayName}
+            >
+              <div className="w-6 md:w-8 mr-2 md:mr-4 rounded-full ring ring-[#973E12] ring-offset-base-100 ring-offset-2 ">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <Link
+              onClick={handleLogOut}
+              className="btn bg-[#973E12]  text-white font-poppins rounded-3xl min-h-0 h-10 md:min-h-[3rem] md:h-[3rem]"
+            >
+              LogOut
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn bg-[#973E12]  text-white font-poppins rounded-3xl min-h-0 h-10 md:min-h-[3rem] md:h-[3rem]"
+            >
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className=" hidden md:flex ml-2 btn bg-[#973E12] text-white font-poppins rounded-3xl min-h-0 h-10 md:min-h-[3rem] md:h-[3rem]"
+            >
+              Register
+            </Link>
+          </>
+        )}
 
+        <div></div>
         {/* theme */}
         <label className="cursor-pointer grid place-items-center ml-2 ">
           <input
             type="checkbox"
             onChange={handleToggle}
-            checked={theme==='dark'? true : false}
+            checked={theme === "dark" ? true : false}
             className="toggle theme-controller bg-[#973E12] row-start-1 col-start-1 col-span-2"
           />
           <svg
