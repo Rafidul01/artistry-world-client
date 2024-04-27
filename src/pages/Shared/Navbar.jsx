@@ -58,7 +58,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "border border-[#973E12] text-[#973E12] font-bold" : ""
           }
-          to="/addArtAndCraft"
+          to="/addCraftItem"
         >
           Add Craft Item
         </NavLink>
