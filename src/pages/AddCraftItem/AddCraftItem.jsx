@@ -17,8 +17,9 @@ const AddCraftItem = () => {
         const user_email = form.user_email.value;
         const user_name = form.user_name.value;
         const description = form.description.value;
+        const rating = form.rating.value;
 
-        const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, user_email, user_name,description}
+        const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, user_email, user_name,description,rating}
 
         fetch("http://localhost:5000/addCraft",{
             method: "POST",
