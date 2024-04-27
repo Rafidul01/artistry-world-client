@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import Swal from 'sweetalert2'
 
 const AddCraftItem = () => {
     const {user} = useContext(AuthContext);
@@ -30,6 +30,14 @@ const AddCraftItem = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Craft Added Successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+            }
         })
         console.log(newCraft);
         
@@ -150,7 +158,7 @@ const AddCraftItem = () => {
                 type="email"
                 name="user_email"
                 placeholder="Your Email"
-                value={user.email || ''}
+                value={user.email || ' '}
                 className="input input-bordered w-full "
               />
             </label>
@@ -162,7 +170,7 @@ const AddCraftItem = () => {
                 type="text"
                 name="user_name"
                 placeholder="Your Name"
-                value={user.displayName || ''}
+                value={user.displayName || ' '}
                 className="input input-bordered w-full "
               />
             </label>
