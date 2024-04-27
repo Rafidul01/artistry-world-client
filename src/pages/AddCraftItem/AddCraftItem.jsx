@@ -1,9 +1,37 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const AddCraftItem = () => {
-
+    const {user} = useContext(AuthContext);
     const handleAddCraft = e =>{
         e.preventDefault();
+        const form = e.target;
+        const item_name = form.item_name.value;
+        const image = form.image.value;
+        const subcategory_name = form.subcategory_name.value;
+        const price = form.price.value;
+        const processing_time = form.processing_time.value;
+        const customization = form.customization.value;
+        const stockStatus = form.stockStatus.value;
+        const user_email = form.user_email.value;
+        const user_name = form.user_name.value;
+        const description = form.description.value;
+
+        const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, user_email, user_name,description}
+
+        fetch("http://localhost:5000/addCraft",{
+            method: "POST",
+            headers:{
+                "Content-type" : "application/json"
+            },
+            body: JSON.stringify(newCraft),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        console.log(newCraft);
         
     }
   return (
@@ -19,7 +47,7 @@ const AddCraftItem = () => {
               </div>
               <input
                 type="text"
-                name="itemName"
+                name="item_name"
                 placeholder="Item Name"
                 className="input input-bordered w-full "
               />
@@ -42,7 +70,7 @@ const AddCraftItem = () => {
               <div className="label">
                 <span className="label-text font-bold">subcategory Name</span>
               </div>
-              <select className="select select-bordered" name="subcategory">
+              <select className="select select-bordered" name="subcategory_name">
                 <option disabled selected></option>
                 <option>Landscape Painting</option>
                 <option>Portrait Drawing</option>
@@ -116,23 +144,25 @@ const AddCraftItem = () => {
           <div className="flex justify-center gap-4 mt-2">
             <label className="form-control w-full ">
               <div className="label">
-                <span className="label-text font-bold">Name</span>
+                <span className="label-text font-bold">Email</span>
               </div>
               <input
                 type="email"
-                name="email"
+                name="user_email"
                 placeholder="Your Email"
+                value={user.email || ''}
                 className="input input-bordered w-full "
               />
             </label>
             <label className="form-control w-full ">
               <div className="label">
-                <span className="label-text font-bold">Image</span>
+                <span className="label-text font-bold">Name</span>
               </div>
               <input
                 type="text"
-                name="name"
+                name="user_name"
                 placeholder="Your Name"
+                value={user.displayName || ''}
                 className="input input-bordered w-full "
               />
             </label>
