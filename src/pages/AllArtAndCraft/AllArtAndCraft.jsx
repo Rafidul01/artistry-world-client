@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AllArtAndCraft = () => {
@@ -44,7 +44,7 @@ const AllArtAndCraft = () => {
               <th>Subcategory</th>
               <th>Price</th>
               <th>Rating</th>
-              <th>Update</th>
+              <th></th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -58,9 +58,9 @@ const AllArtAndCraft = () => {
                 <td>{craft.price}</td>
                 <td>{craft.rating}</td>
                 <td>
-                  <button className="btn rounded-full bg-[#973E12] text-white hover:bg-[#d18661cd]">
-                    Update
-                  </button>
+                  <Link to={`/craftDetails/${craft._id}`} className="btn rounded-full bg-[#973E12] text-white hover:bg-[#d18661cd]">
+                  View Details
+                  </Link>
                 </td>
                 <td>
                   <button

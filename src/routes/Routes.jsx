@@ -5,6 +5,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
+import ViewDetails from "../pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
           path: "/allArtAndCraft",
           element: <AllArtAndCraft />,
           loader: () => fetch("http://localhost:5000/crafts")
+        },
+        {
+          path: "/craftDetails/:id",
+          element: <ViewDetails />,
+          loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
         }
     ]
   },
