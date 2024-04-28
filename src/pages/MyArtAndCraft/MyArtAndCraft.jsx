@@ -7,8 +7,8 @@ const MyArtAndCraft = () => {
     const [crafts, setCrafts] = useState(loadedcraft);
     return (
         <div>
-            this is my art and craft section {crafts.length}
-            <div className="grid grid-cols-3">
+           
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {
                     crafts.map(craft => <MyArtCard key={craft._id} craft={craft} setCrafts={setCrafts} crafts={crafts}></MyArtCard> )
                 } 
