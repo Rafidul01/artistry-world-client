@@ -68,7 +68,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "border border-[#973E12] text-[#973E12] font-bold" : ""
           }
-          to="/myArtAndCraft"
+          to={`/myArtAndCraft/${user.email}`}
         >
           My Art&Craft List
         </NavLink>

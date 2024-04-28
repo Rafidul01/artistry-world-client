@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import AllArtAndCraft from "../pages/AllArtAndCraft/AllArtAndCraft";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
+import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
           path: "/craftDetails/:id",
           element: <ViewDetails />,
           loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        },
+        {
+          path:"/myArtAndCraft/:email",
+          element: <MyArtAndCraft/>,
+          loader: ({params})=> fetch(`http://localhost:5000/crafts/user/${params.email}`)
         }
     ]
   },
