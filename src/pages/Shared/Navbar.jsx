@@ -63,7 +63,8 @@ const Navbar = () => {
           Add Craft Item
         </NavLink>
       </li>
-      <li className="hover:text-[#973E12]">
+      {
+        user && <li className="hover:text-[#973E12]">
         <NavLink
           className={({ isActive }) =>
             isActive ? "border border-[#973E12] text-[#973E12] font-bold" : ""
@@ -73,6 +74,7 @@ const Navbar = () => {
           My Art&Craft List
         </NavLink>
       </li>
+      }
     </>
   );
   return (

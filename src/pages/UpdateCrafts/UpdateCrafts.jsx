@@ -1,10 +1,14 @@
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
-import Swal from 'sweetalert2'
+import {  useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddCraftItem = () => {
-    const {user} = useContext(AuthContext);
-    const handleAddCraft = e =>{
+const UpdateCrafts = () => {
+
+    const loadedCraft = useLoaderData();
+    const [craft, setCraft] = useState(loadedCraft);
+    const {_id} = craft;
+    console.log(craft);
+    const handleUpdate = e =>{
         e.preventDefault();
         const form = e.target;
         const item_name = form.item_name.value;
@@ -14,15 +18,13 @@ const AddCraftItem = () => {
         const processing_time = form.processing_time.value;
         const customization = form.customization.value;
         const stockStatus = form.stockStatus.value;
-        const user_email = form.user_email.value;
-        const user_name = form.user_name.value;
         const description = form.description.value;
         const rating = form.rating.value;
 
-        const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, user_email, user_name,description,rating}
+        const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, description,rating}
 
-        fetch("http://localhost:5000/addCraft",{
-            method: "POST",
+        fetch(`http://localhost:5000/crafts/${_id}`,{
+            method: "PUT",
             headers:{
                 "Content-type" : "application/json"
             },
@@ -31,11 +33,12 @@ const AddCraftItem = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.insertedId){
-                form.reset()
+            if(data.modifiedCount){
+                // form.reset()
+                setCraft({item_name, image,subcategory_name,customization, price,processing_time, stockStatus, description,rating})
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Craft Added Successfully!',
+                    text: 'Craft Updated Successfully!',
                     icon: 'success',
                     confirmButtonText: 'OK'
                   })
@@ -44,11 +47,14 @@ const AddCraftItem = () => {
         console.log(newCraft);
         
     }
-  return (
-    <div className="font-roboto mt-8">
+    return (
+        <div className="font-roboto mt-8">
       <div className="border border-[#973E12]  shadow-2xl py-4 rounded-2xl p-2 md:p-8">
-        <h1 className="text-center font-bold text-2xl mb-8">Add Your Craft Hare!</h1>
-        <form action="" onSubmit={handleAddCraft}>
+        
+        <div>
+            <img src={craft.image} className="w-full h-[500px] " alt="" />
+        </div>
+        <form action="" onSubmit={handleUpdate}>
           {/* row1 */}
           <div className="flex justify-center gap-4 ">
             <label className="form-control w-full ">
@@ -58,6 +64,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="item_name"
+                defaultValue={craft?.item_name}
                 placeholder="Item Name"
                 className="input input-bordered w-full "
               />
@@ -69,6 +76,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="image"
+                defaultValue={craft.image}
                 placeholder="Photo URL"
                 className="input input-bordered w-full "
               />
@@ -78,10 +86,10 @@ const AddCraftItem = () => {
           <div className="flex justify-center gap-4 mt-2">
             <label className="form-control w-full ">
               <div className="label">
-                <span className="label-text font-bold">subcategory Name</span>
+                <span className="label-text font-bold">Subcategory Name</span>
               </div>
               <select className="select select-bordered" name="subcategory_name">
-                <option disabled selected></option>
+                <option disabled selected>{craft?.subcategory_name}</option>
                 <option>Landscape Painting</option>
                 <option>Portrait Drawing</option>
                 <option>Watercolour Painting</option>
@@ -95,7 +103,7 @@ const AddCraftItem = () => {
                 <span className="label-text font-bold">Customization</span>
               </div>
               <select className="select select-bordered" name="customization">
-                <option disabled selected></option>
+                <option disabled selected>{craft?.customization}</option>
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -110,6 +118,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="price"
+                defaultValue={craft?.price}
                 placeholder="Price"
                 className="input input-bordered w-full "
               />
@@ -121,6 +130,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="rating"
+                defaultValue={craft.rating}
                 placeholder="Rating"
                 className="input input-bordered w-full "
               />
@@ -135,6 +145,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="processing_time"
+                defaultValue={craft.processing_time}
                 placeholder="Processing Time"
                 className="input input-bordered w-full "
               />
@@ -144,40 +155,14 @@ const AddCraftItem = () => {
                 <span className="label-text font-bold">Stock Status</span>
               </div>
               <select className="select select-bordered" name="stockStatus">
-                <option disabled selected></option>
+                <option disabled selected>{craft.stockStatus}</option>
                 <option>In stock</option>
                 <option>Made to Order</option>
               </select>
             </label>
           </div>
+
           {/* row5 */}
-          <div className="flex justify-center gap-4 mt-2">
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text font-bold">Email</span>
-              </div>
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Your Email"
-                value={user.email || ' '}
-                className="input input-bordered w-full "
-              />
-            </label>
-            <label className="form-control w-full ">
-              <div className="label">
-                <span className="label-text font-bold">Name</span>
-              </div>
-              <input
-                type="text"
-                name="user_name"
-                placeholder="Your Name"
-                value={user.displayName || ' '}
-                className="input input-bordered w-full "
-              />
-            </label>
-          </div>
-          {/* row6 */}
           <div className="flex justify-center gap-4 mt-2">
             <label className="form-control w-full">
               <div className="label">
@@ -186,15 +171,16 @@ const AddCraftItem = () => {
               <textarea
                 className="textarea textarea-bordered w-full"
                 placeholder="description"
+                defaultValue={craft.description}
                 name="description"
               ></textarea>
             </label>
           </div>
-          <button className="btn btn-block mt-4 bg-[#973E12] text-white">Add</button>
+          <button className="btn btn-block mt-4 bg-[#973E12] text-white">Update</button>
         </form>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddCraftItem;
+export default UpdateCrafts;

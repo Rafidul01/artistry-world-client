@@ -1,12 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const ViewDetails = () => {
     const loadedCraft = useLoaderData();
-    const [craft, setCraft] = useState(loadedCraft);
+    // const [craft, setCraft] = useState(loadedCraft);
     return (
         <div>
-            this is details page of {craft.item_name}
+            this is details page of {loadedCraft.item_name}
         </div>
     );
 };
