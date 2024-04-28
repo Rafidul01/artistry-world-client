@@ -1,7 +1,7 @@
 
 const ChooseSection = () => {
     return (
-        <div  className="bg-[#ece5e1] rounded-2xl font-poppins px-4 py-2 mt-4 shadow-lg border border-[#973e12]">
+        <div  className=" font-poppins px-4 py-2 mt-4 shadow-lg border border-[#973e12]">
             <h1 className="font-lato text-2xl text-center font-bold my-8 ">Why Choose Us ?</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-2 ">

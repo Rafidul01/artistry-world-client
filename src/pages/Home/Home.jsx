@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import ItemCard from "./ItemCard";
 import ChooseSection from "./ChooseSection";
+import NewsLetter from "./NewsLetter";
 
 const Home = () => {
   const crafts = useLoaderData();
@@ -16,6 +17,7 @@ const Home = () => {
         ))}
       </div>
       <ChooseSection></ChooseSection>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };
