@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 const UpdateCrafts = () => {
 
     const loadedCraft = useLoaderData();
-    const [craft, setCraft] = useState(loadedCraft);
-    const {_id} = craft;
+    const [craft, setCraft] = useState(loadedCraft || {});
+    const {_id} = loadedCraft;
     console.log(craft);
     const handleUpdate = e =>{
         e.preventDefault();
@@ -33,15 +33,17 @@ const UpdateCrafts = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.modifiedCount){
+            if(data.modifiedCount > 0){
                 // form.reset()
-                setCraft({item_name, image,subcategory_name,customization, price,processing_time, stockStatus, description,rating})
+                setCraft(newCraft);
                 Swal.fire({
                     title: 'Success!',
                     text: 'Craft Updated Successfully!',
                     icon: 'success',
                     confirmButtonText: 'OK'
                   })
+                // alert("added");
+                
             }
         })
         console.log(newCraft);
@@ -52,7 +54,7 @@ const UpdateCrafts = () => {
       <div className="border border-[#973E12]  shadow-2xl py-4 rounded-2xl p-2 md:p-8">
         
         <div>
-            <img src={craft.image} className="w-full h-[500px] " alt="" />
+            <img src={craft.image} className="w-full h-[250px] md:h-[400px] lg:h-[500px] rounded-2xl mb-4 " alt="" />
         </div>
         <form action="" onSubmit={handleUpdate}>
           {/* row1 */}
