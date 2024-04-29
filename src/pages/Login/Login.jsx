@@ -55,27 +55,17 @@ const Login = () => {
     return (
       <div className="hero min-h-screen font-poppins bg-[url('https://i.ibb.co/hBms6wX/birmingham-museums-trust-hc-XPIKs-C2-PM-unsplash.jpg')] rounded-2xl border-2  border-[#973E12] py-8 bg-center bg-cover ">
         <div className="flex flex-col justify-center items-center ">
-          <div className="text-center lg:text-left w-full md:w-[1/2] shadow-xl  md:rounded-r-2xl flex justify-center items-center p-4 " data-aos="flip-right"
+          <div className="text-center lg:text-left w-full md:w-[1/2] md:rounded-r-2xl flex justify-center items-center p-4 " data-aos="flip-right"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
             <div className="text-center">
               <h1 className="text-5xl font-bold text-black">Login now!</h1>
               <div className="py-6  text-black opacity-80  space-y-4">
-                <p>
-                  Your journey to exceptional real estate experiences starts here!
-                </p>
-                <p>
-                  Please login to unlock exclusive access to premium listings,
-                  expert insights, and unparalleled hospitality solutions.
-                </p>
-                <p>
-                  Your journey to exceptional real estate experiences starts here!
-                </p>
-                <p>Team Sweet Stay!</p>
+                <p className="max-w-[400px]">Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
               </div>
             </div>
           </div>
-          <div className="card shrink-0 w-3/4 bg-base-100 bg-opacity-60  rounded-2xl " data-aos="flip-left"
+          <div className="card shrink-0 md:w-3/4 bg-base-100 bg-opacity-60  rounded-2xl " data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
             <div className="card-body">

@@ -12,7 +12,7 @@ const SubcategorySection = () => {
         })
     },[])
   return (
-    <div className="container  font-lato my-8">
+    <div className="container  font-lato my-8 mt-28">
         <h1 className="font-lato text-2xl text-center font-bold my-8 ">Categories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
         

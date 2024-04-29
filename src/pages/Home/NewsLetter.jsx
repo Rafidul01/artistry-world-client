@@ -1,6 +1,6 @@
 const NewsLetter = () => {
   return (
-    <div className="font-lato p-4 border border-[#973e12] mt-8  shadow-xl ">
+    <div className="font-lato p-4 border border-[#973e12]  shadow-xl mt-28 mb-24 pb-16">
       <div className="flex flex-col justify-center items-center mb-4">
         <h1 className="font-lato text-2xl text-center font-bold mt-8 mb-4 ">
           Get In Touch With Us
@@ -55,7 +55,7 @@ const NewsLetter = () => {
               placeholder="Message"
             ></textarea>
           </label>
-          <button className="btn mt-2 bg-[#973e12]  text-white">Submit</button>
+          <button className="btn  bg-[#973e12]  text-white mt-10">Submit</button>
         </div>
       </div>
     </div>

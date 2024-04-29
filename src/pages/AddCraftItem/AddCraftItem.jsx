@@ -81,7 +81,7 @@ const AddCraftItem = () => {
                 <span className="label-text font-bold">subcategory Name</span>
               </div>
               <select className="select select-bordered" name="subcategory_name">
-                <option disabled selected></option>
+                <option disabled selected>Subcategory</option>
                 <option>Landscape Painting</option>
                 <option>Portrait Drawing</option>
                 <option>Watercolour Painting</option>
@@ -95,7 +95,7 @@ const AddCraftItem = () => {
                 <span className="label-text font-bold">Customization</span>
               </div>
               <select className="select select-bordered" name="customization">
-                <option disabled selected></option>
+                <option disabled selected>Customization</option>
                 <option>Yes</option>
                 <option>No</option>
               </select>
@@ -144,7 +144,7 @@ const AddCraftItem = () => {
                 <span className="label-text font-bold">Stock Status</span>
               </div>
               <select className="select select-bordered" name="stockStatus">
-                <option disabled selected></option>
+                <option disabled selected>Stock Status</option>
                 <option>In stock</option>
                 <option>Made to Order</option>
               </select>
