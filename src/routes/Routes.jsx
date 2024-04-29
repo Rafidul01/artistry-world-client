@@ -9,6 +9,7 @@ import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import UpdateCrafts from "../pages/UpdateCrafts/UpdateCrafts";
 import PrivateRoute from "./PrivateRoute";
+import Category from "../pages/Category/Category";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
           path:"/update/:id",
           element: <PrivateRoute><UpdateCrafts/></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        },
+        {
+          path:"/categories/:subcategory_name",
+          element: <Category />,
+          loader: ({params}) => fetch(`http://localhost:5000/categories/${params.subcategory_name}`)
         }
     ]
   },

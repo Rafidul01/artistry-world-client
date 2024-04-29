@@ -8,7 +8,7 @@ const SubcategoryCard = ({category}) => {
         <img
           src={image}
           alt="Shoes"
-          className="h-[300px]"
+          className="h-[300px] w-full"
         />
       </figure>
       <div className="card-body items-center text-center py-2 my-4 border-y mx-4 border-[#973E12] border-opacity-50">
