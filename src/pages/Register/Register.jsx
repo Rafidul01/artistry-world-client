@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
+import { Typewriter } from "react-simple-typewriter";
 
 const Register = () => {
 
@@ -63,7 +64,15 @@ const Register = () => {
           className="text-center lg:text-left w-full  md:rounded-r-2xl flex justify-center items-center p-4 "
         >
           <div className="text-center  p-2 rounded-2xl">
-            <h1 className="text-5xl font-bold text-black">Register now!</h1>
+            <h1 className="text-5xl font-bold text-black"><Typewriter
+            words={['Register Now']}
+            loop={true}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          /></h1>
             <div className="py-6  text-black opacity-80  space-y-4">
               <p>
                 Your journey to exceptional real estate experiences starts here!

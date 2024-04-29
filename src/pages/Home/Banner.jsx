@@ -6,7 +6,7 @@ import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   const bannerText = (
     <div>
-      <h1 className=" md:text-5xl text-white font-extrabold md:w-[750px] text-center text-opacity-100 font-roboto">
+      <h1 className=" md:text-5xl text-white font-extrabold md:w-[750px] text-center text-opacity-100 font-roboto ">
             <span className="text-[#973e12]">Artistry</span> World <br />
             <span className="md:text-3xl"><Typewriter
             words={['Where Every Stroke Tells a Story', 'Discover the Magic of Handcrafted Beauty', 'Crafting Moments, Creating Memories', 'Transforming Ideas into Works of Art!']}
@@ -22,7 +22,7 @@ const Banner = () => {
     </div>
   );
   return (
-    <div className="mt-2 z-0">
+    <div className="mt-8 z-0">
       <Swiper
         style={{
           "--swiper-navigation-color": "#973e12",

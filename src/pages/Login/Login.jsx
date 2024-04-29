@@ -3,6 +3,7 @@ import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Typewriter } from 'react-simple-typewriter'
 
 
 const Login = () => {
@@ -59,7 +60,15 @@ const Login = () => {
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
             <div className="text-center">
-              <h1 className="text-5xl font-bold text-black">Login now!</h1>
+              <h1 className="text-5xl font-bold text-black"><Typewriter
+            words={['Login Now !']}
+            loop={true}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          /></h1>
               <div className="py-6  text-black opacity-80  space-y-4">
                 <p className="max-w-[400px]">Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
               </div>

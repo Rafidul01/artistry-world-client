@@ -5,7 +5,7 @@ const AllArtAndCraft = () => {
   
   return (
     <div className="font-poppins border p-8 rounded-2xl border-[#973E12] shadow-md shadow-[#973E12]">
-      <p>all art and craft section {crafts.length}</p>
+      
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
