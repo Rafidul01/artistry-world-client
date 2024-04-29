@@ -10,11 +10,13 @@ import MyArtAndCraft from "../pages/MyArtAndCraft/MyArtAndCraft";
 import UpdateCrafts from "../pages/UpdateCrafts/UpdateCrafts";
 import PrivateRoute from "./PrivateRoute";
 import Category from "../pages/Category/Category";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error/> ,
     children: [
         {
             path:"/",
