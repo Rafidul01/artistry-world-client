@@ -2,12 +2,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/bundle";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   const bannerText = (
     <div>
       <h1 className=" md:text-5xl text-white font-extrabold md:w-[750px] text-center text-opacity-100 font-roboto">
             <span className="text-[#973e12]">Artistry</span> World <br />
-            <span className="md:text-3xl">Where Every Stroke Tells a Story</span>
+            <span className="md:text-3xl"><Typewriter
+            words={['Where Every Stroke Tells a Story', 'Discover the Magic of Handcrafted Beauty', 'Crafting Moments, Creating Memories', 'Transforming Ideas into Works of Art!']}
+            loop={true}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          /></span>
       </h1>
       
     </div>

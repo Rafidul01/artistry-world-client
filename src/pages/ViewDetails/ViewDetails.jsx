@@ -24,7 +24,7 @@ const ViewDetails = () => {
   // const [craft, setCraft] = useState(loadedCraft);
   return (
     <div className="font-lato mt-8">
-      <div className="border-2 border-[#973e12] rounded-2xl flex flex-col md:flex-row justify-between p-4 gap-2">
+      <div className="border-2 border-[#973e12] rounded-2xl flex flex-col md:flex-row justify-between  p-4 gap-2">
         <div className="md:w-1/3 md:border-r md:border-[#973e12] md:border-opacity-40 md:pr-4 ">
           <img src={image} alt="" className="w-full h-[400px] rounded-2xl" />
         </div>
@@ -32,29 +32,29 @@ const ViewDetails = () => {
           <h1 className="text-center font-extrabold text-lg">{item_name}</h1>
           <hr className="mt-2 ml-4 border-[#973e12] border-opacity-40" />
           <div className="pl-4">
-            <p className="text-xl gap-2 text-center mt-8">
-              <span className="text-[#973E12] font-medium flex items-center justify-center gap-1 ">
+            <p className="md:text-xl gap-2 text-center mt-8 text-sm">
+              <span className="text-[#973E12] font-normal md:font-medium flex items-center justify-center gap-1 ">
                 Description :{" "}
               </span>
               {description}
             </p>
             <div className="flex flex-col lg:flex-row justify-between lg:my-8 ">
               <div>
-                <p className="md:text-xl flex gap-2">
+                <p className="text-sm md:text-xl flex gap-2">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                   <MdCategory />
                     Subcategory :{" "}
                   </span>
                   {subcategory_name}
                 </p>
-                <p className="md:text-xl flex gap-2">
+                <p className="text-sm md:text-xl flex gap-2">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                     <MdOutlineStarRate />
                     Rating :{" "}
                   </span>
                   {rating}
                 </p>
-                <p className="md:text-xl flex gap-2 items-center">
+                <p className="text-sm md:text-xl flex gap-2 items-center">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                     <RiPriceTag2Line />
                     Price :{" "}
@@ -63,21 +63,21 @@ const ViewDetails = () => {
                 </p>
               </div>
               <div>
-                <p className="md:text-xl flex gap-2">
+                <p className="text-sm md:text-xl flex gap-2">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                   <FaEdit />
                     Customization :{" "}
                   </span>
                   {customization}
                 </p>
-                <p className="md:text-xl flex gap-2">
+                <p className="text-sm md:text-xl flex gap-2">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                   <FaRegCircleCheck />
                     Stock Status :{" "}
                   </span>
                   {stockStatus}
                 </p>
-                <p className="md:text-xl flex gap-2">
+                <p className=" text-sm md:text-xl flex gap-2">
                   <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                   <MdAccessTime />
                     Processing Time :{" "}
@@ -86,20 +86,20 @@ const ViewDetails = () => {
                 </p>
               </div>
             </div>
-            <div className=" flex w-full mb-4 text-center justify-center items-center gap-1">
+            <div className=" flex w-full mb-4 text-center justify-center items-center gap-1 mt-2">
               <hr className="w-full border-[#973e12] " />
               <h1 className="min-w-[90px] font-extrabold text-lg">Posted by</h1>
               <hr className="w-full border-[#973e12] " />
             </div>
             <div>
-              <p className="md:text-xl flex gap-2">
+              <p className="text-sm md:text-xl flex gap-2">
                 <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                 <CgProfile />
                   Name :{" "}
                 </span>
                 {user_name}
               </p>
-              <p className="md:text-xl flex gap-2">
+              <p className=" text-sm md:text-xl flex gap-2">
                 <span className="text-[#973E12] font-medium flex items-center justify-center gap-1">
                 <MdOutlineAlternateEmail />
                   Email :{" "}

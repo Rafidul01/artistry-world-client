@@ -75,7 +75,7 @@ const AddCraftItem = () => {
             </label>
           </div>
           {/* row2 */}
-          <div className="flex justify-center gap-4 mt-2">
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-2">
             <label className="form-control w-full ">
               <div className="label">
                 <span className="label-text font-bold">subcategory Name</span>
