@@ -74,9 +74,8 @@ const Register = () => {
             delaySpeed={1000}
           /></h1>
             <div className="py-6  text-black opacity-80  space-y-4">
-              <p>
-                Your journey to exceptional real estate experiences starts here!
-                </p>
+              <p className="max-w-3xl">
+              Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
             </div>
           </div>
         </div>
