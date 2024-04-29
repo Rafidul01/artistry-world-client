@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import MyArtCard from "./MyArtCard";
+import { Helmet } from "react-helmet";
 
 const MyArtAndCraft = () => {
   const loadedcraft = useLoaderData();
@@ -15,7 +16,7 @@ const MyArtAndCraft = () => {
         setCrafts(loadedcraft);
         return;
     }
-    fetch(`http://localhost:5000/myCrafts/${email}/${option}`)
+    fetch(`https://artistry-world-server.vercel.app/myCrafts/${email}/${option}`)
     .then(res => res.json())
     .then(data => {
         setCrafts(data);
@@ -24,6 +25,9 @@ const MyArtAndCraft = () => {
 
   return (
     <div className="min-h-[calc(100vh-390px)]">
+      <Helmet>
+        <title>My Art & Craft | Artistry World</title>
+      </Helmet>
       <div className="flex justify-center items-center pt-4 pb-8">
         <select onChange={handleFilter} className="select select-primary w-full max-w-xs border-[#973e12] focus:border-[#973e12]  focus:outline-[#973e12] font-bold text-center text-[#973e12]">
           <option disabled selected>

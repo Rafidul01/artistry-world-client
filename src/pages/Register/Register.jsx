@@ -5,6 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
 import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
@@ -59,12 +60,15 @@ const Register = () => {
     }
   return (
     <div className="hero min-h-screen font-poppins bg-[url('https://i.ibb.co/hBms6wX/birmingham-museums-trust-hc-XPIKs-C2-PM-unsplash.jpg')] rounded-2xl border-2  border-[#973E12] py-8 bg-center bg-cover ">
+      <Helmet>
+        <title>Register | Artistry World</title>
+      </Helmet>
       <div className="flex flex-col justify-center items-center ">
         <div
           className="text-center lg:text-left w-full  md:rounded-r-2xl flex justify-center items-center p-4 "
         >
           <div className="text-center  p-2 rounded-2xl">
-            <h1 className="text-5xl font-bold text-black"><Typewriter
+            <h1 className="text-3xl md:text-5xl font-bold text-black"><Typewriter
             words={['Register Now']}
             loop={true}
             cursor
@@ -74,7 +78,7 @@ const Register = () => {
             delaySpeed={1000}
           /></h1>
             <div className="py-6  text-black opacity-80  space-y-4">
-              <p className="max-w-3xl">
+              <p className="max-w-3xl text-sm md:text-base">
               Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
             </div>
           </div>

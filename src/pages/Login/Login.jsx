@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Typewriter } from 'react-simple-typewriter'
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -55,12 +56,15 @@ const Login = () => {
     }
     return (
       <div className="hero min-h-screen font-poppins bg-[url('https://i.ibb.co/hBms6wX/birmingham-museums-trust-hc-XPIKs-C2-PM-unsplash.jpg')] rounded-2xl border-2  border-[#973E12] py-8 bg-center bg-cover ">
+        <Helmet>
+          <title>Login | Artistry World</title>
+        </Helmet>
         <div className="flex flex-col justify-center items-center ">
           <div className="text-center lg:text-left w-full md:w-[1/2] md:rounded-r-2xl flex justify-center items-center p-4 " data-aos="flip-right"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="1000">
             <div className="text-center">
-              <h1 className="text-5xl font-bold text-black"><Typewriter
+              <h1 className="text-3xl md:text-5xl font-bold text-black"><Typewriter
             words={['Login Now !']}
             loop={true}
             cursor
@@ -70,7 +74,7 @@ const Login = () => {
             delaySpeed={1000}
           /></h1>
               <div className="py-6  text-black opacity-80  space-y-4">
-                <p className="max-w-3xl">Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
+                <p className="max-w-3xl text-sm md:text-base ">Sign in to unlock exclusive access to our art and craft collection. Browse, save favorites, and enjoy personalized recommendations. Not a member? Join now to discover a world of creativity!</p>
               </div>
             </div>
           </div>
@@ -137,7 +141,7 @@ const Login = () => {
                     New to Sweet Stay? Please{" "}
                     <Link
                       to="/register"
-                      className="font-bold text-[#FFA920] hover:text-[#c97800]"
+                      className="font-bold text-[#973E12] hover:text-[#973E12cc]"
                     >
                       Register
                     </Link>

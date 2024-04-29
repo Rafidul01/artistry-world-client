@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { CgProfile } from "react-icons/cg";
 import { FaEdit } from "react-icons/fa";
 import { FaRegCircleCheck } from "react-icons/fa6";
@@ -24,9 +25,12 @@ const ViewDetails = () => {
   // const [craft, setCraft] = useState(loadedCraft);
   return (
     <div className="font-lato mt-8">
+      <Helmet>
+        <title>View Details | Artistry World</title>
+      </Helmet>
       <div className="border-2 border-[#973e12] rounded-2xl flex flex-col md:flex-row justify-between  p-4 gap-2">
         <div className="md:w-1/3 md:border-r md:border-[#973e12] md:border-opacity-40 md:pr-4 ">
-          <img src={image} alt="" className="w-full h-[400px] rounded-2xl" />
+          <img src={image} alt="" className="w-full md:h-[400px] rounded-2xl" />
         </div>
         <div className="md:w-2/3 md:border-l md:border-[#973e12] md:border-opacity-40 ">
           <h1 className="text-center font-extrabold text-lg">{item_name}</h1>

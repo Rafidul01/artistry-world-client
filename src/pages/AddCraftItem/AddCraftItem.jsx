@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 
 const AddCraftItem = () => {
     const {user} = useContext(AuthContext);
@@ -21,7 +22,7 @@ const AddCraftItem = () => {
 
         const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, user_email, user_name,description,rating}
 
-        fetch("http://localhost:5000/addCraft",{
+        fetch("https://artistry-world-server.vercel.app/addCraft",{
             method: "POST",
             headers:{
                 "Content-type" : "application/json"
@@ -46,6 +47,9 @@ const AddCraftItem = () => {
     }
   return (
     <div className="font-roboto mt-8">
+      <Helmet>
+        <title>Add Craft | Artistry World</title>
+      </Helmet>
       <div className="border border-[#973E12]  shadow-2xl py-4 rounded-2xl p-2 md:p-8">
         <h1 className="text-center font-bold text-2xl mb-8">Add Your Craft Hare!</h1>
         <form action="" onSubmit={handleAddCraft}>

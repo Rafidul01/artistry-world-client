@@ -6,6 +6,7 @@ import NewsLetter from "./NewsLetter";
 import SubcategorySection from "./Subcategory/SubcategorySection";
 import { useState } from "react";
 import { Bounce } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const crafts = useLoaderData();
@@ -16,6 +17,9 @@ const Home = () => {
   console.log(crafts);
   return (
     <div>
+      <Helmet>
+        <title>Home | Artistry World</title>
+      </Helmet>
       <Banner />
       <h1 className="mb-2 mt-28 text-4xl text-center font-bold ">
       <Bounce>Craft Items</Bounce>

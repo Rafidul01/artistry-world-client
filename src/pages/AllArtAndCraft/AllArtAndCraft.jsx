@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllArtAndCraft = () => {
@@ -5,6 +6,10 @@ const AllArtAndCraft = () => {
   
   return (
     <div className="font-poppins border p-8 rounded-2xl border-[#973E12] shadow-md shadow-[#973E12]">
+
+      <Helmet>
+        <title>All Art And Craft | Artistry World</title>
+      </Helmet>
       
       <div className="overflow-x-auto">
         <table className="table">

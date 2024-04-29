@@ -23,7 +23,7 @@ const UpdateCrafts = () => {
 
         const newCraft = {item_name, image,subcategory_name,customization, price,processing_time, stockStatus, description,rating}
 
-        fetch(`http://localhost:5000/crafts/${_id}`,{
+        fetch(`https://artistry-world-server.vercel.app/crafts/${_id}`,{
             method: "PUT",
             headers:{
                 "Content-type" : "application/json"

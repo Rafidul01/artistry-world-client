@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home />,
-            loader: () => fetch("http://localhost:5000/crafts")
+            loader: () => fetch("https://artistry-world-server.vercel.app/crafts")
         },
         {
           path:"/register",
@@ -38,27 +38,27 @@ const router = createBrowserRouter([
         {
           path: "/allArtAndCraft",
           element: <AllArtAndCraft />,
-          loader: () => fetch("http://localhost:5000/crafts")
+          loader: () => fetch("https://artistry-world-server.vercel.app/crafts")
         },
         {
           path: "/craftDetails/:id",
           element: <PrivateRoute><ViewDetails /></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+          loader: ({params}) => fetch(`https://artistry-world-server.vercel.app/crafts/${params.id}`)
         },
         {
           path:"/myArtAndCraft/:email",
           element: <PrivateRoute><MyArtAndCraft/></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/crafts/user/${params.email}`)
+          loader: ({params})=> fetch(`https://artistry-world-server.vercel.app/crafts/user/${params.email}`)
         },
         {
           path:"/update/:id",
           element: <PrivateRoute><UpdateCrafts/></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+          loader: ({params}) => fetch(`https://artistry-world-server.vercel.app/crafts/${params.id}`)
         },
         {
           path:"/categories/:subcategory_name",
           element: <Category />,
-          loader: ({params}) => fetch(`http://localhost:5000/categories/${params.subcategory_name}`)
+          loader: ({params}) => fetch(`https://artistry-world-server.vercel.app/categories/${params.subcategory_name}`)
         }
     ]
   },
