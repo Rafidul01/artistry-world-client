@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import ItemCard from "./ItemCard";
 import ChooseSection from "./ChooseSection";
 import NewsLetter from "./NewsLetter";
+import SubcategorySection from "./Subcategory/SubcategorySection";
 
 const Home = () => {
   const crafts = useLoaderData();
@@ -17,7 +18,9 @@ const Home = () => {
         ))}
       </div>
       <ChooseSection></ChooseSection>
+      <SubcategorySection></SubcategorySection>
       <NewsLetter></NewsLetter>
+      
     </div>
   );
 };
