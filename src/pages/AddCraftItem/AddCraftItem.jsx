@@ -164,8 +164,9 @@ const AddCraftItem = () => {
                 type="email"
                 name="user_email"
                 placeholder="Your Email"
-                value={user.email || ' '}
+                defaultValue={user.email || ' '}
                 className="input input-bordered w-full "
+                disabled={user.email ? true : false}
               />
             </label>
             <label className="form-control w-full ">
@@ -176,7 +177,8 @@ const AddCraftItem = () => {
                 type="text"
                 name="user_name"
                 placeholder="Your Name"
-                value={user.displayName || ' '}
+                defaultValue={user.displayName || ' '}
+                disabled={user.displayName ? true : false}
                 className="input input-bordered w-full "
               />
             </label>
