@@ -63,7 +63,17 @@ const Navbar = () => {
           Add Craft Item
         </NavLink>
       </li>
-      {user && (
+      <li className="hover:text-[#973E12]">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "border border-[#973E12] text-[#973E12] font-bold" : ""
+            }
+            to={`/myArtAndCraft/${user?.email}`}
+          >
+            My Art&Craft List
+          </NavLink>
+        </li>
+      {/* {user && (
         <li className="hover:text-[#973E12]">
           <NavLink
             className={({ isActive }) =>
@@ -74,7 +84,7 @@ const Navbar = () => {
             My Art&Craft List
           </NavLink>
         </li>
-      )}
+      )} */}
     </>
   );
   return (

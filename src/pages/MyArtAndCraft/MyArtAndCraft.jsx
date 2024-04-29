@@ -23,7 +23,7 @@ const MyArtAndCraft = () => {
   }
 
   return (
-    <div className="">
+    <div className="min-h-[calc(100vh-390px)]">
       <div className="flex justify-center items-center pt-4 pb-8">
         <select onChange={handleFilter} className="select select-primary w-full max-w-xs border-[#973e12] focus:border-[#973e12]  focus:outline-[#973e12] font-bold text-center text-[#973e12]">
           <option disabled selected>
