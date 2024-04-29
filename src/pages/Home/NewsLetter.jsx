@@ -1,11 +1,11 @@
 const NewsLetter = () => {
   return (
-    <div className="font-lato p-4 border border-[#973e12] mt-8">
+    <div className="font-lato p-4 border border-[#973e12] mt-8  shadow-xl ">
       <div className="flex flex-col justify-center items-center mb-4">
         <h1 className="font-lato text-2xl text-center font-bold mt-8 mb-4 ">
-          Get in touch with us
+          Get In Touch With Us
         </h1>
-        <p className="text-center text-xs md:text-sm max-w-[500px] opacity-80">
+        <p className="text-center text-xs md:text-sm max-w-[500px] opacity-80 text-">
           FOR MORE INFORMATION ABOUT OUR PRODUCT & SERVICES. PLEASE FEEL FREE TO
           DROP US AN EMAIL. OUR STAFF ALWAYS BE THERE TO HELP YOU OUT. DO NOT
           HESITATE!
