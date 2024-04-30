@@ -1,14 +1,39 @@
 // import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { CgProfile } from "react-icons/cg";
 import { FaEdit } from "react-icons/fa";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { MdAccessTime, MdCategory, MdOutlineAlternateEmail, MdOutlineAttachMoney, MdOutlineStarRate } from "react-icons/md";
 import { RiPriceTag2Line } from "react-icons/ri";
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const ViewDetails = () => {
-  const loadedCraft = useLoaderData();
+  
+  const [crafts, setCrafts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const params = useParams();
+  const { id } = params;
+
+  useEffect(() => {
+    fetch(`https://artistry-world-server.vercel.app/crafts/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCrafts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[calc(100vh-390px)]">
+        <div>
+          <span className="loading loading-infinity w-32 bg-[#973E12]"></span>
+        </div>
+      </div>
+    );
+  }
   const {
     item_name,
     image,
@@ -21,7 +46,7 @@ const ViewDetails = () => {
     user_name,
     description,
     rating,
-  } = loadedCraft;
+  } = crafts;
   // const [craft, setCraft] = useState(loadedCraft);
   return (
     <div className="font-lato mt-8">

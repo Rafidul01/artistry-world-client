@@ -20,8 +20,7 @@ const router = createBrowserRouter([
     children: [
         {
             path:"/",
-            element: <Home />,
-            loader: () => fetch("https://artistry-world-server.vercel.app/crafts")
+            element: <Home />
         },
         {
           path:"/register",
@@ -38,17 +37,14 @@ const router = createBrowserRouter([
         {
           path: "/allArtAndCraft",
           element: <AllArtAndCraft />,
-          loader: () => fetch("https://artistry-world-server.vercel.app/crafts")
         },
         {
           path: "/craftDetails/:id",
-          element: <PrivateRoute><ViewDetails /></PrivateRoute>,
-          loader: ({params}) => fetch(`https://artistry-world-server.vercel.app/crafts/${params.id}`)
+          element: <PrivateRoute><ViewDetails /></PrivateRoute>
         },
         {
           path:"/myArtAndCraft/:email",
-          element: <PrivateRoute><MyArtAndCraft/></PrivateRoute>,
-          loader: ({params})=> fetch(`https://artistry-world-server.vercel.app/crafts/user/${params.email}`)
+          element: <PrivateRoute><MyArtAndCraft/></PrivateRoute>
         },
         {
           path:"/update/:id",
@@ -57,8 +53,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/categories/:subcategory_name",
-          element: <Category />,
-          loader: ({params}) => fetch(`https://artistry-world-server.vercel.app/categories/${params.subcategory_name}`)
+          element: <Category />
         }
     ]
   },

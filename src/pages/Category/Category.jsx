@@ -1,12 +1,35 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
 import { Slide } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
 
 const Category = () => {
-  const crafts = useLoaderData();
+  // const crafts = useLoaderData();
   const param = useParams();
   const {subcategory_name} = param;
+
+  const [crafts, setCrafts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`https://artistry-world-server.vercel.app/categories/${subcategory_name}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCrafts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[calc(100vh-390px)]">
+        <div>
+          <span className="loading loading-infinity w-32 bg-[#973E12]"></span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[calc(100vh-390px)]">

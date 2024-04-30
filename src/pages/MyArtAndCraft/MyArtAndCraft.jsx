@@ -1,19 +1,45 @@
-import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
 import MyArtCard from "./MyArtCard";
 import { Helmet } from "react-helmet";
 
 const MyArtAndCraft = () => {
-  const loadedcraft = useLoaderData();
-  const [crafts, setCrafts] = useState(loadedcraft);
+  // const loadedcraft = useLoaderData();
+  // const [crafts, setCrafts] = useState(loadedcraft);
   const params = useParams();
   const {email} = params;
+  const [crafts, setCrafts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`https://artistry-world-server.vercel.app/crafts/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCrafts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[calc(100vh-390px)]">
+        <div>
+          <span className="loading loading-infinity w-32 bg-[#973E12]"></span>
+        </div>
+      </div>
+    );
+  }
+  
 //   console.log(email);
   const handleFilter = e =>{
     console.log(e.target.value);
     const option = e.target.value;
     if(option === "Any"){
-        setCrafts(loadedcraft);
+      fetch(`https://artistry-world-server.vercel.app/crafts/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCrafts(data);
+      });
         return;
     }
     fetch(`https://artistry-world-server.vercel.app/myCrafts/${email}/${option}`)

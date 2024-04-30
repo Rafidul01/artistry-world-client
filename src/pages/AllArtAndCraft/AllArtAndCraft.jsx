@@ -1,9 +1,30 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AllArtAndCraft = () => {
-  const crafts = useLoaderData();
-  
+
+  const [crafts, setCrafts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://artistry-world-server.vercel.app/crafts")
+      .then((res) => res.json())
+      .then((data) => {
+        setCrafts(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[calc(100vh-390px)]">
+        <div>
+          <span className="loading loading-infinity w-32 bg-[#973E12]"></span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="font-poppins border p-8 rounded-2xl border-[#973E12] shadow-md shadow-[#973E12]">
 
